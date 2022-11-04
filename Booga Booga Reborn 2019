@@ -1,0 +1,641 @@
+local SOMEXHUB = loadstring(game:HttpGet("https://raw.githubusercontent.com/AidzLT/ProjectSlayer1/main/AntiCheatTrash1"))();
+local xNero = SOMEXHUB:Create({Name = "Booga Booga Reborn 2019 2019",Size = UDim2.fromOffset(400, 400),Theme = SOMEXHUB.Themes.Dark,Link = "https://github.com/facebook.comAidzLT"})
+
+xNero:Notification({Title = "Welcome AidzLT Community",Text = "game này anticheat như cặc",Duration = 3})
+xNero:Credit{Name = "LuongTruong",Description = "Discord AidzLT",}
+
+local Main = xNero:Tab({Name = "Aidz Script",Icon = "http://www.roblox.com/asset/?id=6414160239"})
+
+
+Main:Button({Name = "booga",Description = "[Mine Aura]",Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/CheeseOnGithub/scripts/main/bb2019.lua",true))()
+end})
+
+Main:Button({Name = "devil hub",Description = "[HUB NÀY NGON]",Callback = function()
+	pcall(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Prajon/DEVIL-loader-remake/main/DEVIL-Hub-Script", true))()
+	end)
+	
+	setclipboard("YY76Gr4HW4FGhwQbYJ26")
+end})
+
+Main:Button({Name = "Speed+Fly+AutoClicker",Description = "[- = giảm] [+ = tăng] [E = xuống] [Space = lên]",Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/AidzLT/Speed-Fly/main/Booga%20Booga%20Reborn%202019",true))()
+
+        getgenv().Settings = {
+    ["Auto Click Keybind"] = "V", -- Use an UpperCase letter or KeyCode Enum. Ex: Enum.KeyCode.Semicolon
+    ["Lock Mouse Position Keybind"] = "B",
+    ["Right Click"] = false,
+    ["GUI"] = true, -- A drawing gui that tells you what is going on with the autoclicker.
+    ["Delay"] = 0 -- 0 for RenderStepped, other numbers go to regular wait timings.
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BimbusCoder/Script/main/Auto%20Clicker.lua"))()
+end})
+
+Main:Button({Name = "Auto Pickup Item",Description = "[Press G]",Callback = function()
+local Players = game:GetService("Players")
+			  local Lp = Players.LocalPlayer
+			  local Char = Lp.Character
+			  local Root = Char.HumanoidRootPart
+			  local uis = game:GetService'UserInputService'
+		  
+			  --local PickupKey = "G"
+		  
+			  local Load;
+			  local Pick = function(Character)
+				  local Pos = Root.Position
+				  local Load = {}
+		  
+				  for i,v in pairs(workspace:GetChildren()) do
+					  if v:FindFirstChild("Pickup") ~= nil and v.ClassName == "Part" or v.ClassName == "UnionOperation" then
+						  local Object = v.Position
+						  local Mag = (Pos - Object).Magnitude
+		  
+						  if Mag < 50 then
+							  table.insert(Load, v)
+						  end
+					  end
+				  end
+				  for i,v in pairs(Load) do
+					  for i=1,10 do
+						  v.Position = Pos
+						  game:GetService'ReplicatedStorage'.Events.Pickup:FireServer(v)
+					  end
+				  end
+			  end
+			  wait(0.5)
+		  
+			  uis.InputBegan:Connect(function(Key)
+				  if uis:GetFocusedTextBox() then return end
+				  if Key.KeyCode == Enum.KeyCode.G then -- Enum.KeyCode[PickupKey] for certain Key!
+					  Pick(Char)
+				  end
+			  end)
+end})
+
+Main:Button({Name = "Xoá",Description = "[Ctrl Delete]",Callback = function()
+	local Plr = game:GetService("Players").LocalPlayer
+			  local Mouse = Plr:GetMouse()
+		  
+			  Mouse.Button1Down:connect(function(k)
+				  if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then return end
+				  if not Mouse.Target then return end
+				  Mouse.Target:Destroy()
+			  end)
+end})
+
+
+Main:Button({Name = "For all Game",Description = "[Inf Yiel]",Callback = function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source')))()
+end})
+
+local Main = xNero:Tab({Name = "Serverhop",Icon = "http://www.roblox.com/asset/?id=6414160239"})
+
+
+Main:Button({Name = "Server Hop",Description = "[Low Ping]",Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/AidzLT/ServerHop/main/Booga%20Booga%20Reborn%202019", true))()
+end})
+
+Main:Button({Name = "Find Server",Description = "[Menu Server]",Callback = function()
+	loadstring(game:HttpGet("https://rawscripts.net/raw/Server-Browser_80", true))()
+end})
+
+Main:Button({Name = "Copy id game",Description = "[All Game]",Callback = function()
+	function cstr(String) local clipBoard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set) if clipBoard then clipBoard(String) end end
+
+cstr(game.PlaceId)
+end})
+
+Main:Button({Name = "For all Game",Description = "[Join Server = JOBID]",Callback = function()
+        setclipboard(game.JobId)
+end})
+
+Main:Button({Name = "Tween R + Click",Description = nil,Callback = function()
+	getgenv().Enabled = true
+
+local speed = 500
+local bodyvelocityenabled = true
+
+local UIS = game:GetService("UserInputService")
+local Plr = game.Players.LocalPlayer
+local Mouse = Plr:GetMouse()
+
+function To(position)
+ local Chr = Plr.Character
+   if Chr ~= nil then
+   local ts = game:GetService("TweenService")
+   local char = game.Players.LocalPlayer.Character
+   local hm = char.HumanoidRootPart
+   local dist = (hm.Position - Mouse.Hit.p).magnitude
+   local tweenspeed = dist/tonumber(speed)
+   local ti = TweenInfo.new(tonumber(tweenspeed), Enum.EasingStyle.Linear)
+   local tp = {CFrame = CFrame.new(position)}
+   ts:Create(hm, ti, tp):Play()
+   if bodyvelocityenabled == true then
+   local bv = Instance.new("BodyVelocity")
+   bv.Parent = hm
+   bv.MaxForce = Vector3.new(100000,100000,100000)
+   bv.Velocity = Vector3.new(0,0,0)
+   wait(tonumber(tweenspeed))
+   bv:Destroy()
+   end
+ end
+end
+
+
+UIS.InputBegan:Connect(function(input)
+ if input.UserInputType == Enum.UserInputType.MouseButton1 and UIS:IsKeyDown(Enum.KeyCode.R) and Enabled then
+   To(Mouse.Hit.p)
+ end
+end)
+end})
+
+local Main = xNero:Tab({Name = "Teleport Gold",Icon = "http://www.roblox.com/asset/?id=6414160239"})
+
+Main:Button({Name = "4 Raw Gold",Description = "[24 = 120 Coin]",Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(907.8509521484375, -1.8572685718536377, -1412.278564453125)}):Play()
+end})
+
+Main:Button({Name = "4 Raw Gold",Description = "[24 = 120 Coin]",Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(619.0796508789062, -8.33609390258789, -373.7040710449219)}):Play()
+end})
+
+Main:Button({Name = "3 Raw Gold",Description = "[18 = 90 Coin]",Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-129.88885498046875, -35.0000114440918, -178.11041259765625)}):Play()
+end})
+
+Main:Button({Name = "3 Raw Gold",Description = "[18 = 90 Coin]",Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(35.030643463134766, -99.09312438964844, -365.6387634277344)}):Play()
+end})
+
+Main:Button({Name = "3 Raw Gold",Description = "[18 = 90 Coin]",Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(43.89287567138672, -99.0000228881836, -364.1734924316406)}):Play()
+end})
+
+Main:Button({Name = "2 Raw Gold",Description = "[12 = 60 Coin]",Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(483.6061096191406, 14.059898376464844, 195.3109893798828)}):Play()
+end})
+
+Main:Button({Name = "2 Raw Gold",Description = "[12 = 60 Coin]",Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-244.8289031982422, -71.65654754638672, -77.66280364990234)}):Play()
+end})
+
+local Main = xNero:Tab({Name = "Teleport God Fram Exp",Icon = "http://www.roblox.com/asset/?id=6414160239"})
+
+Main:Button({Name = "Miserable God",Description = "[Spawn : Sky 1]",Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-197.0598907470703, 148.99996948242188, -676.2281494140625)}):Play()
+end})
+
+Main:Button({Name = "Lonely God",Description = "[Spawn : Sky 3]",Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-1152.96240234375, 344.9999694824219, -1171.1514892578125)}):Play()
+end})
+
+
+Main:Button({Name = "Wealthy God",Description = "[Spawn : Island Ice]",Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(383.2217712402344, 44.26140213012695, -1840.812255859375)}):Play()
+end})
+
+Main:Button({Name = "Sleeping God",Description = "[Spawn : Hang Động Xếp Hạng]",Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-121.10018157958984, -103.01760864257812, -344.0201110839844)}):Play()
+end})
+
+Main:Button({Name = "Old God",Description = "[Spawn : Island Old God]",Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-1092.651123046875, -188.11558532714844, -422.09271240234375)}):Play()
+end})
+
+Main:Button({Name = "Hateful God",Description = "[Spawn : Island Cave]",Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(220.1641387939453, -117.72295379638672, 1084.295654296875)}):Play()
+end})
+
+local Main = xNero:Tab({Name = "Teleport Island",Icon = "http://www.roblox.com/asset/?id=6414160239"})
+
+Main:Button({Name = "Sky 1",Description = nil,Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-499.8917236328125, 148.99996948242188, -600.0824584960938)}):Play()
+end})
+
+Main:Button({Name = "Sky 2",Description = nil,Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-506.8658142089844, 311.0311279296875, -1131.4786376953125)}):Play()
+end})
+
+Main:Button({Name = "Sky 3",Description = nil,Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-1085.684814453125, 350.09722900390625, -1219.4320068359375)}):Play()
+end})
+
+Main:Button({Name = "Island Ice",Description = nil,Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-179.4397735595703, -3.0000011920928955, -1512.6981201171875)}):Play()
+end})
+
+Main:Button({Name = "Rebirth",Description = nil,Callback = function()
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(1, Enum.EasingStyle.Linear)
+tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-1287.888427734375, -3.044057607650757, -1867.841796875)}):Play()
+end})
+
+local Main = xNero:Tab({Name = "Auto Fram Level",Icon = "http://www.roblox.com/asset/?id=6414160239"})
+
+Main:Button({Name = "AutoFramTrue",Description = nil,Callback = function()
+
+_G.loop = true
+
+while _G.loop do
+
+wait(2.5) --1
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-547.274658203125, 147.40093994140625, -587.2052612304688)
+
+wait(2.5) --2
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-399.5204772949219, 158.36041259765625, -677.1171875)
+
+wait(2.5) --3
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-381.88409423828125, 157.3443603515625, -701.1422729492188)
+
+wait(2.5) --4
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-360.25689697265625, 157.73016357421875, -869.7371826171875)
+
+wait(2.5) --5
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-294.29998779296875, 154.6300048828125, -912.7308959960938)
+
+wait(2.5) --6
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-273.14892578125, 154.2270965576172, -908.0965576171875)
+
+wait(2.5) --7
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-167.2678680419922, 148.99996948242188, -730.5198364257812)
+
+wait(2.5) --8
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-212.50466918945312, 154.8893585205078, -627.0643310546875)
+
+wait(2.5) --9
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-238.7528076171875, 155.54617309570312, -606.6280517578125)
+
+wait(2.5) --10
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-643.3074951171875, -3.0000009536743164, -574.5747680664062)
+
+wait(4) --11
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-643.118896484375, -3.0000011920928955, -582.2395629882812)
+
+wait(2.5) --12
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-637.61767578125, -3.0000011920928955, -612.1475830078125)
+
+wait(2.5) --13
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-654.365478515625, -2.579773426055908, -19.981185913085938)
+
+wait(2.5) --14
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-659.092041015625, -3.0000011920928955, 13.201275825500488)
+
+wait(2.5) --15
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(76.79914093017578, -3.0000011920928955, 89.5674819946289)
+
+wait(4) --16
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(91.3864974975586, -3.0000011920928955, 66.72246551513672)
+
+wait(2.5) --17
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-633.426513671875, 311.018310546875, -1095.0291748046875)
+
+wait(2.5) --18
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-719.9876098632812, 314.10357666015625, -1266.1268310546875)
+
+wait(2.5) --19
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-735.3644409179688, 313.8162841796875, -1263.4036865234375)
+
+wait(2.5) --20
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-435.60675048828125, 311.6407470703125, -1275.0504150390625)
+
+wait(2.5) --21
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-456.2848815917969, 313.3919677734375, -1281.257568359375)
+
+wait(2.5) --22
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-437.7677001953125, 313.47540283203125, -1297.45166015625)
+
+wait(2.5) --23
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-509.4499816894531, 313.10064697265625, -1289.010498046875)
+
+wait(2.5) --24
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-586.004638671875, 311.01556396484375, -1216.4422607421875)
+
+wait(2.5) --25
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-746.1285400390625, 311.5704040527344, -1154.669921875)
+wait(1)
+end
+end})
+
+Main:Button({Name = "AutoFramFalse",Description = nil,Callback = function()
+
+_G.loop = false
+
+while _G.loop do
+
+wait(2.5) --1
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-547.274658203125, 147.40093994140625, -587.2052612304688)
+
+wait(2.5) --2
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-399.5204772949219, 158.36041259765625, -677.1171875)
+
+wait(2.5) --3
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-381.88409423828125, 157.3443603515625, -701.1422729492188)
+
+wait(2.5) --4
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-360.25689697265625, 157.73016357421875, -869.7371826171875)
+
+wait(2.5) --5
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-294.29998779296875, 154.6300048828125, -912.7308959960938)
+
+wait(2.5) --6
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-273.14892578125, 154.2270965576172, -908.0965576171875)
+
+wait(2.5) --7
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-167.2678680419922, 148.99996948242188, -730.5198364257812)
+
+wait(2.5) --8
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-212.50466918945312, 154.8893585205078, -627.0643310546875)
+
+wait(2.5) --9
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-238.7528076171875, 155.54617309570312, -606.6280517578125)
+
+wait(2.5) --10
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-643.3074951171875, -3.0000009536743164, -574.5747680664062)
+
+wait(4) --11
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-643.118896484375, -3.0000011920928955, -582.2395629882812)
+
+wait(2.5) --12
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-637.61767578125, -3.0000011920928955, -612.1475830078125)
+
+wait(2.5) --13
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-654.365478515625, -2.579773426055908, -19.981185913085938)
+
+wait(2.5) --14
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-659.092041015625, -3.0000011920928955, 13.201275825500488)
+
+wait(2.5) --15
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(76.79914093017578, -3.0000011920928955, 89.5674819946289)
+
+wait(4) --16
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(91.3864974975586, -3.0000011920928955, 66.72246551513672)
+
+wait(2.5) --17
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-633.426513671875, 311.018310546875, -1095.0291748046875)
+
+wait(2.5) --18
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-719.9876098632812, 314.10357666015625, -1266.1268310546875)
+
+wait(2.5) --19
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-735.3644409179688, 313.8162841796875, -1263.4036865234375)
+
+wait(2.5) --20
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-435.60675048828125, 311.6407470703125, -1275.0504150390625)
+
+wait(2.5) --21
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-456.2848815917969, 313.3919677734375, -1281.257568359375)
+
+wait(2.5) --22
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-437.7677001953125, 313.47540283203125, -1297.45166015625)
+
+wait(2.5) --23
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-509.4499816894531, 313.10064697265625, -1289.010498046875)
+
+wait(2.5) --24
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-586.004638671875, 311.01556396484375, -1216.4422607421875)
+
+wait(2.5) --25
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-746.1285400390625, 311.5704040527344, -1154.669921875)
+wait(1)
+end
+end})
+
+
+Main:Button({Name = "AutoFramTrue1",Description = nil,Callback = function()
+
+_G.loop = true
+
+while _G.loop do
+
+wait(2.5) --1
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-547.274658203125, 147.40093994140625, -587.2052612304688)
+
+wait(2.5) --2
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-399.5204772949219, 158.36041259765625, -677.1171875)
+
+wait(2.5) --3
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-381.88409423828125, 157.3443603515625, -701.1422729492188)
+
+wait(2.5) --4
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-360.25689697265625, 157.73016357421875, -869.7371826171875)
+
+wait(2.5) --5
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-294.29998779296875, 154.6300048828125, -912.7308959960938)
+wait(2.5) --6
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-273.14892578125, 154.2270965576172, -908.0965576171875)
+
+wait(2.5) --7
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-167.2678680419922, 148.99996948242188, -730.5198364257812)
+
+wait(2.5) --8
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-212.50466918945312, 154.8893585205078, -627.0643310546875)
+
+wait(2.5) --9
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-238.7528076171875, 155.54617309570312, -606.6280517578125)
+wait(1)
+end
+end})
+
+Main:Button({Name = "AutoFramFalse1",Description = nil,Callback = function()
+
+_G.loop = false
+
+while _G.loop do
+
+wait(2.5) --1
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-547.274658203125, 147.40093994140625, -587.2052612304688)
+
+wait(2.5) --2
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-399.5204772949219, 158.36041259765625, -677.1171875)
+
+wait(2.5) --3
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-381.88409423828125, 157.3443603515625, -701.1422729492188)
+
+wait(2.5) --4
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-360.25689697265625, 157.73016357421875, -869.7371826171875)
+
+wait(2.5) --5
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-294.29998779296875, 154.6300048828125, -912.7308959960938)
+
+wait(2.5) --6
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-273.14892578125, 154.2270965576172, -908.0965576171875)
+
+wait(2.5) --7
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-167.2678680419922, 148.99996948242188, -730.5198364257812)
+
+wait(2.5) --8
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-212.50466918945312, 154.8893585205078, -627.0643310546875)
+
+wait(2.5) --9
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-238.7528076171875, 155.54617309570312, -606.6280517578125)
+wait(1)
+end
+end})
+
+Main:Button({Name = "Auto Teleport Pumkin Fast",Description = nil,Callback = function()
+	for i,v in pairs(game:GetService("Workspace").pumpkins:GetDescendants()) do
+    if v.Name == "ParticleEmitter" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+        wait(2)
+        
+    end
+    end
+end})
+
+Main:Button({Name = "Auto Teleport Pumkin Slow",Description = nil,Callback = function()
+	for i,v in pairs(game:GetService("Workspace").pumpkins:GetDescendants()) do
+    if v.Name == "ParticleEmitter" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+        wait(10)
+        
+    end
+    end
+end})
+
+Main:Button({Name = "AutoFramGold",Description = "God Pick Only Setting",Callback = function()
+wait(3) --1
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(942.9756469726562, -2.251166343688965, -1407.5516357421875)
+
+wait(3) --2
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(903.0623779296875, -3.0000011920928955, -1400.35009765625)
+
+wait(3) --3
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(894.4107666015625, -1.0130213499069214, -1422.637451171875)
+
+wait(3) --4
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(918.5015258789062, -1.1738297939300537, -1425.1142578125)
+
+wait(3) --5
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(615.69775390625, -7.20097017288208, -355.2281799316406)
+
+wait(6) --6
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(616.3916625976562, -7.209659576416016, -385.6594543457031)
+
+wait(3) --7
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(634.1063232421875, -7.108964443206787, -381.07537841796875)
+
+wait(3) --8
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-126.4167709350586, -5.04814338684082, -212.10528564453125)
+
+wait(3) --9
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-112.14509582519531, -26.075769424438477, -192.5580291748047)
+
+wait(3) --10
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-141.9837646484375, -34.912818908691406, -161.7531280517578)
+
+wait(3) --11
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(20.6905574798584, -99.0000228881836, -378.9654541015625)
+
+wait(3) --12
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(36.93912887573242, -99.1136245727539, -368.5807189941406)
+
+wait(3) --13
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(51.518123626708984, -99.73558044433594, -353.38153076171875)
+
+wait(3) --14
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(471.3819885253906, 11.51836109161377, 227.4307861328125)
+
+wait(3) --15
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(469.28814697265625, 14.095391273498535, 157.04196166992188)
+
+wait(3) --16
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-231.12750244140625, -71.6562728881836, -78.78617858886719)
+
+wait(3) --17
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-237.742919921875, -71.66468811035156, -71.64684295654297)
+
+wait(3) --18
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-336.03076171875, -91.01565551757812, -48.94163131713867)
+
+wait(3) --19
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(154.44351196289062, -75.0000228881836, 28.672359466552734)
+
+wait(3) --20
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5.907368183135986, -83.0000228881836, -86.75127410888672)
+
+wait(3) --21
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-247.8550262451172, -83.0000228881836, -237.63929748535156)
+
+wait(3) --22
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-189.83160400390625, -103.69474792480469, -452.1043395996094)
+
+wait(3) --23
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-209.7062530517578, -61.47940444946289, -624.9918823242188)
+
+wait(3) --24
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(662.1793212890625, 32.62617492675781, -185.9382781982422)
+
+wait(3) --25
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-725.6265869140625, -67.23350524902344, 208.4911346435547)
+
+wait(3) --26
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-303.8618469238281, -75.95819854736328, -371.82952880859375)
+
+wait(3) --27
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(299.24884033203125, 0.7029346227645874, 1143.2689208984375)
+
+wait(3) --28
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-375.7726135253906, -43.805206298828125, -560.6715698242188)
+
+wait(3) --29
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-901.3844604492188, 10.159525871276855, -402.7826232910156)
+
+wait(3) --30
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-25.04840087890625, -69.42326354980469, -429.44293212890625)
+
+wait(3) --31
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1095.72265625, -204.984130859375, -467.6678771972656)
+
+wait(3) --32
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1053.077392578125, -201.13418579101562, -479.904052734375)
+
+wait(3) --33
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(549.60302734375, -31.570281982421875, -766.09326171875)
+
+wait(3) --34
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(197.0697021484375, 1.0414714813232422, 1211.72314453125)
+
+wait(3) --35
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1007.50341796875, -1.235210657119751, -512.3897705078125)
+
+wait(3) --36
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(685.0657348632812, 87.37982940673828, -394.0592346191406)
+
+wait(3) --37
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(148.45236206054688, -71.50344848632812, 33.00007629394531)
+
+wait(3) --38
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-558.32958984375, -76.21442413330078, -18.83116912841797)
+
+wait(3) --39
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16.705114364624023, -88.24571228027344, -4.451483249664307)
+
+wait(3) --40
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-498.22021484375, 152.5215606689453, -610.0138549804688)
+
+wait(3) --41
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-212.93650817871094, 24.69970703125, -628.0645751953125)
+end})
+
+
+Discord:Button({Name = "Copy Discord",Description = nil,Callback = function()
+xNero:Notification({Title = "Discord AidzLT",Text = "https://discord.gg/cocailon",Duration = 3})
+setclipboard("https://discord.gg/cocailon")
+end})
